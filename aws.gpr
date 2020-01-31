@@ -1,0 +1,39 @@
+project AWS is
+
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+   for Source_Dirs use ("src");
+   for Main use ("read.adb");
+   type Module_Type is
+      ("MOD_WIN", "MOD_RPI");
+   Module : Module_Type := external ("Module", "MOD_RPI");
+   type Private_Warnings_Type is ("TRUE", "FALSE");
+   Private_Warnings : Private_Warnings_Type := external ("Private_Warnings", "TRUE");
+
+   package Builder is
+      for Switches ("ada") use ("-g", "-k", "-s");
+
+      case Module is
+
+         when "MOD_WIN" =>
+            for Executable ("read.adb") use "aws_win";
+
+         when "MOD_RPI" =>
+            for Executable ("read.adb") use "aws";
+      end case;
+   end Builder;
+
+   package Compiler is
+      for Switches ("ada") use ("-g", "-gnatf", "-gnateDModule=" & Module,
+                                "-gnateDPrivate_Warnings=" & Private_Warnings, "-gnat12");
+   end Compiler;
+
+   package Linker is
+      for Switches ("ada") use ("-g");
+   end Linker;
+
+   package Binder is
+      for Switches ("ada") use ("-E");
+   end Binder;
+
+end AWS;

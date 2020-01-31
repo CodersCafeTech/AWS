@@ -1,0 +1,11 @@
+20200131193923
+-c
+-x
+ada
+-gnatA
+-g
+-g
+-gnatf
+-gnateDModule=MOD_RPI
+-gnateDPrivate_Warnings=FALSE
+-gnat12

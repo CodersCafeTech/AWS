@@ -1,0 +1,22 @@
+[GENERATED OBJECT FILE]
+b__read.o
+[PROJECT FILES]
+/home/pi/test/aws.gpr
+20200131194009
+[BOUND OBJECT FILES]
+/home/pi/test/obj/i2c.o
+/home/pi/test/obj/read.o
+[GENERATED SOURCE FILES]
+b__read.ads
+b__read.adb
+b__read.ali
+[RESULTING OPTIONS]
+-L/home/pi/test/obj/
+-L/home/pi/test/obj/
+-L/usr/lib/gcc/arm-linux-gnueabihf/8/adalib/
+-shared
+-shared-libgcc
+-lgnat-8
+[RUN PATH OPTION]
+/usr/lib/gcc/arm-linux-gnueabihf/8/adalib/
+/usr/lib
